@@ -37,7 +37,7 @@ export default class HomeScreen extends React.Component{
                         title ="Open DrawNavigator"
                     />
 
-                    <TouchableWithoutFeedback onPress={this.bounce}>
+                    <TouchableWithoutFeedback onPress={this.bounceIn}>
                       <Animatable.View animation="bounceInRight" ref={this.handleViewRef} style={styles.aboutButton}>
                         <Text  style={[styles.aboutMenu, {fontWeight: 'bold'} ]}>About My Martian</Text>
                       </Animatable.View>
@@ -48,9 +48,7 @@ export default class HomeScreen extends React.Component{
                         <Text  style={[styles.aboutMenu, {fontWeight: 'bold'} ]}>About Author</Text>
                       </Animatable.View>
                     </TouchableWithoutFeedback>
-                    <Animatable.View animation="pulse" easing="ease-out" iterationCount="infinite" ref={this.handleViewRef} style={{width:300, height: 100, alignItems: 'center', justifyContent:'center'}}>
-                      <Image source={require('../img/ball.png')} style={{width:100, height:100,opacity: 0.5}} />
-                    </Animatable.View>
+                    
                 </Content>
             </Container>
         );
