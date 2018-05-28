@@ -43,11 +43,7 @@ export default class HomeScreen extends React.Component{
                       </Animatable.View>
                     </TouchableWithoutFeedback>
 
-                    <TouchableWithoutFeedback onPress={this.bounceIn}>
-                      <Animatable.View animation="bounceInRight" ref={this.handleViewRef} style={styles.aboutButton}>
-                        <Text  style={[styles.aboutMenu, {fontWeight: 'bold'} ]}>About Author</Text>
-                      </Animatable.View>
-                    </TouchableWithoutFeedback>
+                    
                     
                 </Content>
             </Container>
