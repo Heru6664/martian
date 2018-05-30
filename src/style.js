@@ -90,8 +90,17 @@ const styles = StyleSheet.create({
     },
     aboutButton:{
         marginBottom: 50,
-        
     },
+    loginContainer:{
+        marginTop: 25,
+        flexDirection: 'row',
+        paddingHorizontal: 10
+    },
+    buttonLogin: {
+        width: '48%',
+        backgroundColor:'#3498db',
+        padding: 10
+    }
     
 });
 
