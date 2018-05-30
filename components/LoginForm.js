@@ -5,8 +5,21 @@ import styles from '../src/style';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import {Sae, Makiko} from 'react-native-textinput-effects';
 import {Google, Facebook} from 'expo';
+import * as firebase from 'reactt-native-firebase'
 
 export default class LoginForm extends React.Component{
+    state = {
+        email: '',
+        password: '',
+    }
+    componentWillMount() {
+        const firebaseConfig = {
+            apiKey: 'AIzaSyCuKIJ2j9Ix4Ft_DO3iCuTi8eZMJJaM_V0',
+            authDomain: 'my-martian.firebaseapp.com',
+        }
+
+        firebase.initializeApp(firebaseConfig);
+    }
     _handleGoogleLogin = async () => {
         try {
             const {type, user} = await Google.logInAsync({
@@ -82,17 +95,20 @@ export default class LoginForm extends React.Component{
             );
         }
     };
+
     render(){
         return(
             <KeyboardAvoidingView behavior="padding" style={styles.formContainer}>
                 <Text style={styles.text}> Sign In Here </Text>
                 <Makiko 
-                    label={'Username or Email'}
+                    label={'Email'}
                     iconClass={FontAwesomeIcon}
                     iconName={'pencil'}
                     iconColor ={'white'}
                     style={styles.input}
                     inputStyle={{ color: '#db786d' }}
+                    onChangeText = { email => this.setState.email}
+                    value = {this.state.email}
                 />
                 <Makiko 
                     label={'Password'}
@@ -102,6 +118,8 @@ export default class LoginForm extends React.Component{
                     secureTextEntry
                     style={styles.input}
                     inputStyle={{ color: '#db786d' }}
+                    onChangeText = { password => this.setState.password}
+                    value = {this.state.password}
                 />
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>LOGIN</Text>
